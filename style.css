@@ -1,142 +1,107 @@
-/* ===== Navbar 微調（更像範例那種清爽感） ===== */
-.inner{
-  max-width: 1120px;
+/* ======================
+   全域 reset（防止 bullet 回來）
+====================== */
+*{
+  box-sizing: border-box;
+}
+
+ul, li{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ======================
+   Navbar（不會再直排）
+====================== */
+.topbar{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #fff;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.topbar .inner{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
   height: 72px;
-  padding: 0 18px;
-  gap: 14px;
+
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
 .brand{
   font-weight: 800;
-  letter-spacing: .5px;
+  font-size: 18px;
+  white-space: nowrap;
 }
 
 .menu{
-  gap: 10px;
+  display: flex;
+  gap: 18px;
+  margin-left: 12px;
+  flex: 1;
 }
 
 .menu a{
-  padding: 0 12px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 10px;
   border-radius: 10px;
+  font-size: 15px;
+}
+
+.menu a:hover{
+  background: #f2f2f2;
 }
 
 .pill-btn{
-  display:inline-flex;
-  align-items:center;
   height: 40px;
-  padding: 0 14px;
+  padding: 0 16px;
   border-radius: 999px;
-  border: 1px solid var(--nav-border);
-  text-decoration:none;
-  color: var(--nav-text);
+  border: 1px solid #ddd;
   font-size: 14px;
 }
 
 .pill-btn:hover{
-  background: var(--hover-bg);
+  background: #f2f2f2;
 }
 
-/* ===== Hero 區塊 ===== */
-main{
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 28px 18px 64px;
-}
-
+/* ======================
+   Hero 滿版圖片（整張顯示）
+====================== */
 .hero{
-  display:grid;
-  grid-template-columns: 1.05fr 1fr;
-  gap: 28px;
-  align-items:center;
-  background:#f6f1eb;        /* 類似參考圖的淡底 */
-  border-radius: 18px;
-  padding: 26px;
-  border: 1px solid #eee6de;
+  width: 100vw;
+  height: 420px;
+  overflow: hidden;
 }
 
-.hero-media{
-  border-radius: 14px;
-  overflow:hidden;
-  background:#fff;
-  border: 1px solid #eee;
+.hero img{
+  width: 100%;
+  height: 100%;
+  display: block;
+
+  object-fit: contain;   /* 整張顯示 */
+  background: #f6f1eb;   /* 留白底色 */
 }
 
-.hero-media img{
-  width:100%;
-  height:100%;
-  display:block;
-  object-fit:cover;
-}
-
-.kicker{
-  margin: 0 0 10px;
-  font-size: 12px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color:#6b5cff;
-  font-weight: 700;
-}
-
-.hero-text h1{
-  margin: 0 0 12px;
-  font-size: 44px;
-  line-height: 1.12;
-  letter-spacing: -0.5px;
-  color:#2a2622;
-}
-
-.lead{
-  margin: 0 0 18px;
-  font-size: 16px;
-  line-height: 1.7;
-  color:#4b4540;
-  max-width: 48ch;
-}
-
-.hero-actions{
-  display:flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  height: 44px;
-  padding: 0 16px;
-  border-radius: 999px;
-  text-decoration:none;
-  font-weight: 600;
-  border: 1px solid transparent;
-}
-
-.btn.primary{
-  background:#6b5cff;
-  color:#fff;
-}
-
-.btn.primary:hover{
-  filter: brightness(.95);
-}
-
-.btn.ghost{
-  background: transparent;
-  border-color: #d8d1c8;
-  color:#2a2622;
-}
-
-.btn.ghost:hover{
-  background: rgba(255,255,255,.6);
-}
-
-/* 手機版：上下排 */
-@media (max-width: 900px){
+/* 手機 */
+@media (max-width: 768px){
   .hero{
-    grid-template-columns: 1fr;
+    height: 260px;
   }
 
-  .hero-text h1{
-    font-size: 34px;
+  .menu{
+    gap: 10px;
+    flex-wrap: wrap;
   }
 }
