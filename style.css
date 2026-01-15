@@ -1,9 +1,8 @@
 /* ======================
    全域 reset（防止 bullet 回來）
 ====================== */
-*{
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html,body { height: 100%; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans TC", "Helvetica Neue", Arial; color:#222; background:#f7f7f7; }
 
 ul, li{
   margin: 0;
@@ -23,7 +22,8 @@ a{
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: #fff;
+  background: #0b3b66;
+  color:#fff;
   border-bottom: 1px solid #e5e5e5;
 }
 
@@ -39,69 +39,195 @@ a{
 }
 
 .brand{
-  font-weight: 800;
-  font-size: 18px;
-  white-space: nowrap;
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
 }
 
 .menu{
   display: flex;
-  gap: 18px;
-  margin-left: 12px;
-  flex: 1;
-}
-
-.menu a{
-  height: 40px;
-  display: inline-flex;
+  gap: 12px;
+  margin-left: auto;
   align-items: center;
-  padding: 0 10px;
-  border-radius: 10px;
-  font-size: 15px;
 }
 
-.menu a:hover{
-  background: #f2f2f2;
+.menu a, .menu .menu-link {
+  background: transparent;
+  color: #fff;
+  border: 0;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
 }
+.menu a:hover, .menu .menu-link:hover { background: rgba(255,255,255,0.08); }
+
+.menu button, .menu .menu-link {
+  background: transparent;
+  color: #fff;
+  border: 0;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: none;
+}
+.menu button:hover, .menu .menu-link:hover { background: rgba(255,255,255,0.08); }
 
 .pill-btn{
-  height: 40px;
-  padding: 0 16px;
-  border-radius: 999px;
-  border: 1px solid #ddd;
-  font-size: 14px;
+  background:#ff6b35;
+  color:#fff;
+  padding:8px 14px;
+  border-radius:20px;
+  text-decoration:none;
+  margin-left:12px;
+  font-weight:600;
 }
 
 .pill-btn:hover{
-  background: #f2f2f2;
+  opacity:0.95;
 }
+
+/* nav toggle (mobile) */
+.nav-toggle { display:none; background:transparent; border:0; margin-left:auto; cursor:pointer; }
+.hamburger { width:22px; height:2px; background:#fff; display:block; position:relative; }
+.hamburger::before, .hamburger::after { content:""; position:absolute; left:0; width:22px; height:2px; background:#fff; transition:transform .2s; }
+.hamburger::before { top:-7px; }
+.hamburger::after { top:7px; }
 
 /* ======================
    Hero 滿版圖片（整張顯示）
 ====================== */
 .hero{
-  width: 100vw;
-  height: 420px;
-  overflow: hidden;
+  position:relative;
+  height:360px;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#222;
+  color:#fff;
 }
 
 .hero img{
-  width: 100%;
-  height: 100%;
-  display: block;
-
-  object-fit: contain;   /* 整張顯示 */
-  background: #f6f1eb;   /* 留白底色 */
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:0.6;
+  display:block;
 }
 
-/* 手機 */
-@media (max-width: 768px){
-  .hero{
-    height: 260px;
-  }
+.hero-caption{
+  position:absolute;
+  text-align:center;
+  padding:16px;
+}
 
-  .menu{
-    gap: 10px;
-    flex-wrap: wrap;
-  }
+.hero-caption h1{
+  font-size:2rem;
+  margin-bottom:8px;
+}
+
+.hero-caption p{
+  opacity:0.95;
+}
+
+/* ======================
+   主要容器、卡片樣式
+====================== */
+.container {
+  padding:28px 16px 60px;
+}
+
+.card {
+  background:#fff;
+  padding:20px;
+  margin:18px auto;
+  border-radius:8px;
+  box-shadow:0 6px 18px rgba(10,10,20,0.06);
+}
+
+.card h2 {
+  margin-bottom:10px;
+}
+
+/* ======================
+   格線系統
+====================== */
+.grid {
+  display:grid;
+  gap:14px;
+}
+
+.team-grid {
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+}
+
+.member {
+  text-align:center;
+  padding:12px;
+}
+
+.member img {
+  width:100%;
+  height:140px;
+  object-fit:cover;
+  border-radius:6px;
+  background:#ddd;
+}
+
+.pub-grid {
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+}
+
+.pub {
+  padding:12px;
+  border-radius:6px;
+  background:#fafafa;
+}
+
+/* ======================
+   按鈕樣式
+====================== */
+.outline-btn {
+  display:inline-block;
+  padding:8px 12px;
+  border-radius:6px;
+  border:1px solid #ccc;
+  text-decoration:none;
+  color:#333;
+  background:transparent;
+}
+
+.pill-btn, .outline-btn, button {
+  cursor:pointer;
+}
+
+/* ======================
+   Tabs
+====================== */
+.tabs-wrap { display:flex; gap:8px; flex-wrap:wrap; align-items:center; padding:10px; background:transparent; border-radius:8px; }
+.tab-btn { background:transparent; border:1px solid #d6d6d6; padding:8px 12px; border-radius:8px; cursor:pointer; font-weight:600; color:#0b3b66; }
+.tab-btn:hover { background:#f3f7fb; }
+.tab-btn.active { background:#0b3b66; color:#fff; border-color:#0b3b66; }
+
+/* Tab panels: hide by default; show when active (aria-hidden="false") */
+.tab-panel[aria-hidden="true"] { display:none; }
+.tab-panel[aria-hidden="false"] { display:block; }
+
+/* 在小螢幕時，tabs 捲動或換行 */
+@media (max-width:700px) {
+  .tabs-wrap { overflow:auto; padding-bottom:8px; gap:6px; }
+  .tab-btn { flex:0 0 auto; white-space:nowrap; }
+}
+
+@media (max-width:900px) {
+  .menu { display:none; position:absolute; top:64px; right:16px; background:#0b3b66; flex-direction:column; padding:12px; border-radius:8px; min-width:180px; }
+  .menu.show { display:flex; }
+  .nav-toggle { display:block; }
+  .pill-btn { display:none; }
+  .hero { height:240px; }
+  .hero-caption h1 { font-size:1.4rem; }
 }

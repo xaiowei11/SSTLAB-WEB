@@ -4,6 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>SSTLAB</title>
+  <meta name="description" content="SSTLAB 實驗室介紹—研究領域、成員與成果展示" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -11,30 +13,117 @@
 
   <!-- Navbar -->
   <header class="topbar">
-    <nav class="inner">
+    <nav class="inner" aria-label="主導覽">
       <div class="brand">SSTLAB</div>
 
-      <ul class="menu">
-        <li><a href="#">關於我們</a></li>
-        <li><a href="#">最新消息</a></li>
-        <li><a href="#">實驗室人員</a></li>
-        <li><a href="#">歷史活動</a></li>
-        <li><a href="#">研究成果</a></li>
+      <!-- 手機選單按鈕 -->
+      <button class="nav-toggle" aria-expanded="false" aria-controls="main-menu" aria-label="切換選單">
+        <span class="hamburger"></span>
+      </button>
+
+      <ul id="main-menu" class="menu">
+        <li><a href="#about">關於我們</a></li>
+        <li><a href="#news">最新消息</a></li>
+        <li><a href="#team">實驗室人員</a></li>
+        <li><a href="#events">歷史活動</a></li>
+        <li><a href="#publications">研究成果</a></li>
       </ul>
 
-      <a class="pill-btn" href="#">聯絡我們</a>
+      <a class="pill-btn" href="#contact">聯絡我們</a>
     </nav>
   </header>
 
   <!-- 滿版 Hero（不放在 main） -->
-  <section class="hero">
-    <img src="labphoto.jpg" alt="SSTLAB 首頁主視覺">
+  <section class="hero" aria-hidden="false">
+    <img src="labphoto.jpg" alt="SSTLAB 首頁主視覺" style="width:100%;">
+    <div class="hero-caption">
+      <h1>歡迎來到 SSTLAB</h1>
+      <p>跨領域研究、實務導向、與學生共同成長</p>
+    </div>
   </section>
 
   <!-- 之後其他內容再放 main -->
-  <main>
-    <!-- content -->
+  <main class="container">
+    <!-- About -->
+    <section id="about" class="card">
+      <h2>關於我們</h2>
+      <p>SSTLAB 專注於 xxx、yyy 與 zzz 的研究。實驗室結合理論與實作，並與產業與其他研究單位合作推動創新。</p>
+      <ul>
+        <li>研究方向：人工智慧、感測器系統、資料分析</li>
+        <li>願景：培育跨域人才，發展具社會影響力的研究成果</li>
+      </ul>
+    </section>
+
+    <!-- News -->
+    <section id="news" class="card">
+      <h2>最新消息</h2>
+      <article class="news-item">
+        <h3>2026/01/10 — 新計畫獲補助</h3>
+        <p>本實驗室獲得國家型科技計畫之補助，將展開 xxx 相關研究。</p>
+      </article>
+      <article class="news-item">
+        <h3>2025/12/05 — 年度成果發表會</h3>
+        <p>實驗室舉辦年度成果發表會，歡迎校內外人士參加。</p>
+      </article>
+    </section>
+
+    <!-- Team -->
+    <section id="team" class="card">
+      <h2>實驗室人員</h2>
+      <div class="grid team-grid">
+        <div class="member">
+          <img src="avatar1.jpg" alt="教授照片">
+          <h4>吳承翰教授</h4>
+          <p>國立臺北護理健康大學 資訊管理系</p>
+        </div>
+        <div class="member">
+          <img src="avatar2.jpg" alt="研究助理照片">
+          <h4>陳玠文教授</h4>
+          <p>國立政治大學 神經科學研究所</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Events -->
+    <section id="events" class="card">
+      <h2>歷史活動</h2>
+      <ul class="events-list">
+        <li><strong>2025/11/20</strong>：舉辦 Open Lab Day，介紹研究設備與成果。</li>
+        <li><strong>2024/06/12</strong>：與企業合作進行研討會。</li>
+      </ul>
+    </section>
+
+    <!-- Publications -->
+    <section id="publications" class="card">
+      <h2>研究成果</h2>
+      <div class="grid pub-grid">
+        <article class="pub">
+          <h4>論文 A</h4>
+          <p>作者：...；期刊：Example Journal；年份：2025</p>
+          <a href="#" class="outline-btn">閱讀摘要</a>
+        </article>
+        <article class="pub">
+          <h4>論文 B</h4>
+          <p>作者：...；會議：Example Conf；年份：2024</p>
+          <a href="#" class="outline-btn">閱讀摘要</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="card">
+      <h2>聯絡我們</h2>
+      <p>地址：台灣 · 範例路 123 號</p>
+      <p>聯絡信箱：sstlab@example.edu</p>
+    </section>
   </main>
 
+  <footer class="site-footer">
+    <div class="inner">
+      
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
